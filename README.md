@@ -22,7 +22,7 @@ Complete la tabla:
 
 | Integrante | github nick |
 |------------|-------------|
-|            |             |
+| Victor Luis Angulo Tovar | VictorLouis |
 
 ## Entrega
 
