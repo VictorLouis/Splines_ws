@@ -81,10 +81,10 @@ void draw() {
       text("Natural", -50 ,0);
   break;
   case 1:
-      text("Bezier Grade 3", -80, 0);
+      text("Bezier Grade 3", -100, 0);
   break;
   case 2:
-      text("Bezier Grade 7", -80 ,0);
+      text("Bezier Grade 7", -100 ,0);
   break;
   case 3:
       text("Hermite", -50 ,0);
@@ -102,7 +102,8 @@ void draw() {
   switch(mode){
   case 0:
     pushStyle();
-    
+    CubicNatural cubicNat = new CubicNatural(n);
+    cubicNat.splineDraw();
     popStyle();
   break;
   case 1:

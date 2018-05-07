@@ -75,11 +75,11 @@ class Bezier{
   public void splineDraw(){
   strokeWeight(3);
   stroke(52,139,196);
-  for(int i = 0; i < this.gPoints.size()-1; i ++){
-      Vector Pi = gPoints.get(i);
-      Vector Pj = gPoints.get(i+1);
-      line(Pi.x(),Pi.y(),Pi.z(),Pj.x(), Pj.y(),Pj.z());
+    for(int i = 0; i < this.gPoints.size()-1; i ++){
+        Vector Pi = gPoints.get(i);
+        Vector Pj = gPoints.get(i+1);
+        line(Pi.x(),Pi.y(),Pi.z(),Pj.x(), Pj.y(),Pj.z());
+    }
   }
- }
 
 }
