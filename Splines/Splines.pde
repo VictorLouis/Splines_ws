@@ -14,6 +14,7 @@ import frames.primitives.*;
 import frames.core.*;
 import frames.processing.*;
 
+
 // global variables
 // modes: 0 natural cubic spline; 1 Hermite;
 // 2 (degree 7) Bezier; 3 Cubic Bezier
@@ -51,7 +52,7 @@ void setup() {
 }
 
 void draw() {
-  background(175);
+  background(0);
   if (drawGrid) {
     stroke(255, 255, 0);
     scene.drawGrid(200, 50);
@@ -71,7 +72,60 @@ void draw() {
   // To retrieve the positions of the control points do:
   // for(Frame frame : interpolator.keyFrames())
   //   frame.position();
+  //scene.beginScreenCoordinates();
+  pushStyle();
+  fill(250);  
+  textSize(30);
+  switch(mode){
+  case 0:
+      text("Natural", -50 ,0);
+  break;
+  case 1:
+      text("Bezier Grade 3", -80, 0);
+  break;
+  case 2:
+      text("Bezier Grade 7", -80 ,0);
+  break;
+  case 3:
+      text("Hermite", -50 ,0);
+  break;
+  }
+  popStyle();
+  //scene.endScreenCoordinates();
+  
+  ArrayList<Vector> n = new ArrayList<Vector>();
+  for(Frame frame : interpolator.keyFrames()) {
+    n.add(frame.position());
+  }
+  
+  
+  switch(mode){
+  case 0:
+    pushStyle();
+    
+    popStyle();
+  break;
+  case 1:
+    pushStyle();
+    Bezier bezier3 = new Bezier(3, n);
+    bezier3.splineDraw();
+    popStyle();
+  break;
+  case 2:
+    pushStyle();
+    Bezier bezier7 = new Bezier(7, n);
+    bezier7.splineDraw();
+    popStyle();
+  break;
+  case 3:
+    pushStyle();
+    Hermite herm = new Hermite(n);
+    herm.splineDraw();
+    popStyle();  
+  break;
+  }
 }
+
 
 void keyPressed() {
   if (key == ' ')
